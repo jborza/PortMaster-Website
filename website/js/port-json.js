@@ -30,7 +30,9 @@ const portSchema = {
     /* Any hardware/software requirements: opengl, power, 4:3, 3:2, 16:9, lowres, hires */
     "reqs": [],
      /* Architecture aarch64,armhf, x86_64, x86  */
-    "arch": [],
+    "arch": [], 
+    /* Devices ported to */
+    "devices": [],
   }
 }
 
@@ -64,7 +66,7 @@ function getJsonTemplate() {
 async function populatePorterList() {
   var porters = {};
   try {
-    var response = await fetch('https://raw.githubusercontent.com/PortsMaster/PortMaster-Info/main/porters.json'); // Replace 'YOUR_JSON_URL_HERE' with the actual URL of your JSON data.
+    var response = await fetch('https://raw.githubusercontent.com/PortsMaster/PortMaster-Info/main/porters.json');
     if (!response.ok) {
       throw new Error('Network response was not ok.');
     }
@@ -137,6 +139,11 @@ function getFormValues() {
   // power requirement
   if (document.getElementById("power").checked){
     portJson.attr.reqs.push("power");
+  }
+
+  // devices ported to
+  if(document.getElementById("devices").checked){
+    portJson.attr.devices = Array.from(document.getElementById("devicess").selectedOptions).map(o => o.value);
   }
 
   return portJson;

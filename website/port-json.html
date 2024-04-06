@@ -281,8 +281,25 @@
                   OpenGL: any device with OpenGL, not OpenGLES
                 </label>
               </div>
+              <label class="form-label">Devices ported to</label>
+              <div class="col-12"> <!-- took them from supported-devices.html -->
+                <label class="form-check-label" for="devices">
+                  Devices ported to: list of devices this port has been tested on.
+                </label>
+                <select multiple class="form-select" id="devices" required>
+                  <option value="RG51MP">RG51MP</option>
+                  <option value="RG351P/M">RG351P/M</option>
+                  <option value="RG351V">RG351V</option>
+                  <option value="RG353M/V/P/VS">RG353M/V/P/VS</option>
+                  <option value="RG503">RG503</option>
+                  <option value="RG552">RB552</option>
+                  <option value="RGB10">RGB10</option>
+                  <option value="RGB30">RGB30</option>
+                  <option value="RK2023">RK2023</option>
+                  <option value="X55">X55</option>
+                </select>
+              </div>
               <hr class="my-4">
-
             </div>
 
             <button onclick="validateForm()" class="w-100 btn btn-primary btn-lg" type="button">Download JSON</button>

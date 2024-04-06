@@ -240,6 +240,35 @@
           </ul>
           <ul class="navbar-nav ">
             <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Devices</a>
+              <ul class="dropdown-menu" class="devices">
+                <div class="dropdown-item">
+                  <li><label><input onchange="filterCards()" id="ready-to-run" class="form-check-input" type="checkbox"
+                    checked value='' />  RG51MP</label></li>
+                  <li><label><input onchange="filterCards()" id="ready-to-run" class="form-check-input" type="checkbox"
+                    checked value='' />  RG351P/M</label></li>
+                  <li><label><input onchange="filterCards()" id="ready-to-run" class="form-check-input" type="checkbox"
+                    checked value='' />  RG351V</label></li>
+                  <li><label><input onchange="filterCards()" id="ready-to-run" class="form-check-input" type="checkbox"
+                    checked value='' />  RG353M/V/P/VS</label></li>
+                  <li><label><input onchange="filterCards()" id="ready-to-run" class="form-check-input" type="checkbox"
+                    checked value='' />  RG503</label></li>
+                  <li><label><input onchange="filterCards()" id="ready-to-run" class="form-check-input" type="checkbox"
+                    checked value='' />  RB552</label></li>
+                  <li><label><input onchange="filterCards()" id="ready-to-run" class="form-check-input" type="checkbox"
+                    checked value='' />  RGB10</label></li>
+                  <li><label><input onchange="filterCards()" id="ready-to-run" class="form-check-input" type="checkbox"
+                    checked value='' />  RGB30</label></li>
+                  <li><label><input onchange="filterCards()" id="ready-to-run" class="form-check-input" type="checkbox"
+                    checked value='' />  RK2023</label></li>
+                  <li><label><input onchange="filterCards()" id="ready-to-run" class="form-check-input" type="checkbox"
+                    checked value='' />  X55</label></li>                                          
+                  </div>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ">
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Sort</a>
               <ul class="dropdown-menu">
                 <div class="dropdown-item">
@@ -249,6 +278,8 @@
                         type="checkbox" value='' /> Most Downloaded</label></li>
                   <li><label><input onchange="sortNewest()" id="sortNewest" class="form-check-input" type="checkbox"
                         value='' /> Most Recent</label></li>
+                  <li><label><input onchange="sortByDevices()" id="sortByDevices" class="form-check-input" type="checkbox"
+                    value='' />Sort by devices ported</label></li>
                 </div>
               </ul>
             </li>
@@ -276,7 +307,12 @@
 
     <br>
     <br>
+    <div>
+      <!-- sortable and searchable by devices ported -->
+      Sortable: <input type="text" id="sortable" oninput="sortCards()" placeholder="Sort by device">
+      Searchable: <input type="text" id="searchable" oninput="filterCards()" placeholder="Search by device">
 
+    </div>
     <main>
       <div class="album py-5 bg-body-tertiary">
        

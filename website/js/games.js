@@ -3,16 +3,19 @@ var countsData = null;
 var AZ = true;
 var Newest = false;
 var Downloaded = false;
-
+var ByDevice = false;
 
 function sortAZ(){
     AZ = true;
     Newest = false;
     Downloaded = false;
+    ByDevice = false;
     const newestCheck = document.getElementById('sortNewest');
     const downloadedCheck = document.getElementById('sortDownloaded');
+    const byDevicesCheck = document.getElementById('sortByDevices');
     downloadedCheck.checked = false;
     newestCheck.checked = false;
+    byDevicesCheck.checked = false;
     filterCards();
 }
 
@@ -20,10 +23,13 @@ function sortNewest(){
     AZ = false;
     Downloaded = false;
     Newest = true;
+    ByDevice = false;
     const azCheck = document.getElementById('sortAZ');
     const downloadedCheck = document.getElementById('sortDownloaded');
+    const byDevicesCheck = document.getElementById('sortByDevices');
     azCheck.checked = false;
     downloadedCheck.checked = false;
+    byDevicesCheck.checked = false;
     filterCards();
 }
 
@@ -31,13 +37,27 @@ function sortDownloaded(){
     AZ = false;
     Newest = false;
     Downloaded = true;
+    ByDevice = false;
     const newestCheck = document.getElementById('sortNewest');
     const azCheck = document.getElementById('sortAZ');
+    const byDevicesCheck = document.getElementById('sortByDevices');
     azCheck.checked = false;
     newestCheck.checked = false;
+    byDevicesCheck.checked = false;
     filterCards();
 }
 
+function sortByDevicesPorted(){
+    AZ = false;
+    Downloaded = false;
+    Newest = false;
+    ByDevice = true;
+    const azCheck = document.getElementById('sortAZ');
+    const downloadedCheck = document.getElementById('sortDownloaded');
+    azCheck.checked = false;
+    downloadedCheck.checked = false;
+    filterCards();
+}
 
 // Function to create a card element for each JSON object
 // https://discord.gg/JxYBp9HTAY
@@ -217,6 +237,11 @@ function filterCards() {
 
     if (Downloaded){
         filteredData.sort((a,b)=> a.download_count > b.download_count ? -1 :  (a.download_count < b.download_count) ? 1 :0);
+    }
+
+    if(ByDevice){
+        filteredData
+            .sort((a, b) => a.devices > b.devices ? -1 : (a.devices < b.devices ? 1 : 0);
     }
 
     var availablePorts = document.getElementById("port-count")
