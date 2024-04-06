@@ -241,7 +241,7 @@ function filterCards() {
 
     if(ByDevice){
         filteredData
-            .sort((a, b) => a.devices > b.devices ? -1 : (a.devices < b.devices ? 1 : 0);
+            .sort((a, b) => a.devices > b.devices ? -1 : (a.devices < b.devices ? 1 : 0));
     }
 
     var availablePorts = document.getElementById("port-count")
