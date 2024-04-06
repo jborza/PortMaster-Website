@@ -1,3 +1,4 @@
+# Should be ran from the root directory of the repository
 import os
 import shutil
 import requests
